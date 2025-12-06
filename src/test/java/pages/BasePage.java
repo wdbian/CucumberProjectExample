@@ -29,9 +29,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.ConfigUtil;
 
 public class BasePage {
-	private WebDriver driver;
-	private WebDriverWait wait;
-	private Logger logger;
+	protected WebDriver driver;
+	protected WebDriverWait wait;
+	protected Logger logger;
 	
 	protected BasePage(WebDriver driver)
 	{

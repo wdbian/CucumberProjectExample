@@ -17,7 +17,7 @@ import manager.DriverManager;
 import utility.ConfigUtil;
 import utility.WebUtil;
 
-public class ExtentReportHook {
+public class Hook {
 	String scenarioName;
 	WebDriver driver;
 	
