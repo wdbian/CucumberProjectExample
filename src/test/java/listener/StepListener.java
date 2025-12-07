@@ -30,11 +30,7 @@ public class StepListener {
 	}
 	
 	private void onStepStarted(TestStepStarted event) {
-		TestStep step = event.getTestStep();
-		if (step instanceof PickleStepTestStep) {
-			PickleStepTestStep pickleStep = (PickleStepTestStep) step;
-			String stepName = pickleStep.getStep().getKeyword() + pickleStep.getStep().getText();		
-		}
+		
 	}
 	
 	private void onStepFinished(TestStepFinished event) {

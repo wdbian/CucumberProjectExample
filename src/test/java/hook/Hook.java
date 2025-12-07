@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.WebDriver;
 
+import dataDictionary.ThreadDataMap;
 import driverGenerator.WebDriverGenerator;
 import enumeration.WebDriverType;
 import enumeration.WebDriverVendor;
@@ -20,6 +21,7 @@ import utility.WebUtil;
 public class Hook {
 	String scenarioName;
 	WebDriver driver;
+	ThreadDataMap threadDataMap;
 	
 	@Before
 	public void beforeScenario(Scenario scenario) throws MalformedURLException {
@@ -48,6 +50,12 @@ public class Hook {
 				driverVendor = WebDriverVendor.FIREFOX;
 		}
 		new WebDriverGenerator(driverType, driverVendor);
+		driver = DriverManager.getWebDriver();
+		
+		/**
+		 * create thread data map instance for each thread and it is used to store data in key-value pair
+		 */
+		threadDataMap = new ThreadDataMap();
 		
 		/**
 		 * add each tag name of active running scenario to extent report
@@ -55,7 +63,7 @@ public class Hook {
 		ExtentTestManager.getTest().assignCategory(scenario.getSourceTagNames().toArray(new String[0]));
 		
 		/**
-		 * used to ensure each thread will have a different 'testName' value, 
+		 * ensure each thread will have a different 'testName' value, 
 		 * so that each thread will have a unique routing log file associated with
 		 */
 		ThreadContext.put("testName", scenarioName + "_" + Thread.currentThread().getId()); 
@@ -76,5 +84,6 @@ public class Hook {
 		}
 		ExtentTestManager.endTest();
 		driver.quit();
+		threadDataMap.removeDataMap();
 	}
 }

@@ -21,8 +21,7 @@ public class WebUtil {
 
 	public static String getScreenshot(WebDriver driver) {
 		Path dirPath = Paths.get(System.getProperty("user.dir"), "screenshot");
-		Path filePath = dirPath.resolve(getTimeStamp() + "_" + Thread.currentThread().getId() + ".png");
-		File dir = new File(dirPath.toString());
+		Path filePath = dirPath.resolve(Thread.currentThread().getId() + "_" + getTimeStamp() + ".png");
 		
 		try {
 			Files.createDirectories(dirPath);
