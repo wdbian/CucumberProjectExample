@@ -18,6 +18,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import manager.DriverManager;
 import utility.ConfigUtil;
 
+/**
+ * WebDriverGenerator is used to generate WebDriver instance based on the type and vendor
+ */
 public class WebDriverGenerator {
 	private WebDriver driver;
 	

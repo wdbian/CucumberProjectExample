@@ -12,6 +12,9 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import utility.WebUtil;
 
+/**
+ * Extent Manager class to create extent report instance
+ */
 public class ExtentManager {
 	private static ExtentReports extent;
 	

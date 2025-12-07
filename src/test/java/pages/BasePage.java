@@ -33,7 +33,7 @@ public class BasePage {
 	protected WebDriverWait wait;
 	protected Logger logger;
 	
-	protected BasePage(WebDriver driver)
+	public BasePage(WebDriver driver)
 	{
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Long.parseLong(ConfigUtil.getProperty("explicitWaitTimeout")));
@@ -68,9 +68,8 @@ public class BasePage {
 	}
 	
 	public void clickElement(WebElement element) {
-		if (! isElementDisplayed(element)) {
-			waitForElementDisplay(element);
-		}	
+		waitForElementToBeClickable(element);
+		highlightElement(element);
 		element.click();
 	}
 	
@@ -86,6 +85,7 @@ public class BasePage {
 		if (! isElementDisplayed(element)) {
 			waitForElementDisplay(element);
 		}
+		highlightElement(element);
 		element.clear();
 		element.sendKeys(text);
 	}
@@ -146,6 +146,10 @@ public class BasePage {
 		wait.until(ExpectedConditions.invisibilityOfAllElements(elementList));
 	}
 	
+	public void waitForElementToBeClickable(WebElement element) {
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
 	public void waitForSelectOptionsCountToEqual(WebElement element, int optionCount) {
 		wait.until(new ExpectedCondition<Boolean>() {
 			@Override
@@ -154,6 +158,13 @@ public class BasePage {
 				return (s.getOptions().size() == optionCount);
 			}	
 		});
+	}
+	
+	public void clickWebElement(WebElement element) {
+		if (! isElementDisplayed(element)) {
+			waitForElementDisplay(element);
+		}
+		element.click();
 	}
 	
 	public void highlightElement(WebElement element) {

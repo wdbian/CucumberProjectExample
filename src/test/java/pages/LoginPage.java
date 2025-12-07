@@ -4,36 +4,42 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import extent.ExtentTestManager;
+
 public class LoginPage extends BasePage{
+	WebDriver driver;
+	DashboardPage dashboardPage;
 	
-	public LoginPage(WebDriver driver)
-	{
+	@FindBy(xpath="//input[@id='signInName' and ./preceding-sibling::*[contains(text(), 'Email Address')]]")
+	private WebElement emailInputField;
+	
+	@FindBy(xpath="//input[@id='password' and ./preceding-sibling::*//*[text()='Password']]")
+	private WebElement passwordInputField;
+	
+	@FindBy(xpath="//button[@type='submit' and text()='SIGN IN']")
+	private WebElement signInBtn;
+	
+	public LoginPage(WebDriver driver){
 		super(driver);
 	}
 	
-	@FindBy(xpath="//input[@id='Email']")
-	public WebElement emailField;
-	
-	@FindBy(xpath="//input[@id='Password']")
-	public WebElement passwordField;
-	
-	@FindBy(xpath="//input[@class='button-1 login-button' and @type='submit']")
-	public WebElement loginBtn;
-	
-	public void inputEmail(String email)
-	{
-		emailField.clear();
-		emailField.sendKeys(email);
+	public void inputEmail(String email){
+		inputText(emailInputField, email);
+		logger.info("input '" + email + "' to Email inputbox on Login Page");
+		ExtentTestManager.getTest().info("input '" + email + "' to Email inputbox on Login Page");
 	}
 	
-	public void inputPassword(String pwd)
-	{
-		passwordField.clear();
-		passwordField.sendKeys(pwd);
+	public void inputPassword(String pwd){
+		inputText(passwordInputField, pwd);
+		logger.info("input '" + pwd + "' to Password inputbox on Login Page");
+		ExtentTestManager.getTest().info("input '" + pwd + "' to Password inputbox on Login Page");
 	}
 	
-	public void clickLogin()
-	{
-		this.loginBtn.click();
+	public DashboardPage clickSignInButton(){
+		clickElement(signInBtn);
+		logger.info("click on 'SIGN IN' button on Login Page");
+		ExtentTestManager.getTest().info("click on 'SIGN IN' button on Login Page");
+		dashboardPage = new DashboardPage(driver);
+		return dashboardPage;
 	}
 }
