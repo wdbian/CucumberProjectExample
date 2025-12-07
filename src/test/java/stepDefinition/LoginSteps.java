@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 
+import dbOperation.SQLQuery;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,6 +20,7 @@ public class LoginSteps {
 	LandingPage landingPage;
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
+	String emailAddress;
 	
 	@Given("user opens landing page")
 	public void user_opens_landing_page() {
@@ -34,6 +36,7 @@ public class LoginSteps {
 	
 	@When("user enters {string} in Email input")
 	public void user_enters_email(String email) {
+		emailAddress = email;
 		loginPage.inputEmail(email);
 	}
 	
@@ -50,13 +53,13 @@ public class LoginSteps {
 	@Then("validate user product size is correct")
 	public void validate_user_product_size_is_correct() {
 		int productCount = dashboardPage.getAvailableProductsCount();
-		assertTrue(productCount == 1);
+		assertTrue("Customer products count is not correct", productCount == 1);
 	}
 	
 	@Then("validate user name is displayed correctly")
 	public void validate_user_name_is_displayed_correctly() {
-		
-		
+		String customerName = dashboardPage.getCustomerName();
+		assertTrue("Customer name is not correct", customerName.equals(SQLQuery.queryCustomerInfo(emailAddress)));	
 	}
 	
 }

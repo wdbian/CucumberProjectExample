@@ -6,6 +6,10 @@ import org.openqa.selenium.support.FindBy;
 
 import extent.ExtentTestManager;
 
+/**
+ * Access To Page:
+ * input landing page URL
+ */
 public class LandingPage extends BasePage {
 	WebDriver driver;
 	LoginPage loginPage;

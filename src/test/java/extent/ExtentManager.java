@@ -35,7 +35,7 @@ public class ExtentManager {
 			}
 			
 			ExtentHtmlReporter html = new ExtentHtmlReporter(extFile);
-			html.config().setDocumentTitle("");
+			html.config().setDocumentTitle("Cucumber Automation Report");
 			html.config().setTheme(Theme.DARK);
 			html.setAppendExisting(false);
 			

@@ -6,6 +6,10 @@ import org.openqa.selenium.support.FindBy;
 
 import extent.ExtentTestManager;
 
+/**
+ * Access To Page:
+ * Landing Page (click "SIGN UP/SIGN IN" button) -> Login Page
+ */
 public class LoginPage extends BasePage{
 	WebDriver driver;
 	DashboardPage dashboardPage;
