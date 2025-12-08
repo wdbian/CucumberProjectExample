@@ -1,6 +1,6 @@
 Summary: Create a Thread-safe Cucumber Automation Testing Framework
 Components:
-  1) Web driver generator: generate web driver instance based on type(local/remote) and vendor(chrome/edge/firefox)
+  1) web driver generator: generate web driver instance based on type(local/remote) and vendor(chrome/edge/firefox)
   2) feature file: specify all testing scenarios
   3) step definition: link step in feature file to code methods
   4) test runner: configure plugins, glue, report and tags to be executed for cucumber
