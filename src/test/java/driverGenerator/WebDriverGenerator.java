@@ -1,15 +1,15 @@
 package driverGenerator;
 
-import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import enumeration.WebDriverType;
@@ -25,7 +25,6 @@ public class WebDriverGenerator {
 	private WebDriver driver;
 	
 	public WebDriverGenerator(WebDriverType type, WebDriverVendor vendor) throws MalformedURLException {
-		DesiredCapabilities desiredCapability;
 		if (type.getDescription().equalsIgnoreCase("local") && vendor.getDescription().equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions option = new ChromeOptions();
@@ -39,16 +38,16 @@ public class WebDriverGenerator {
 			option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			driver = new ChromeDriver(option);
 		} else if (type.getDescription().equalsIgnoreCase("remote") && vendor.getDescription().equalsIgnoreCase("chrome")) {
-			desiredCapability = DesiredCapabilities.chrome();
-			driver = new RemoteWebDriver(new URL(ConfigUtil.getProperty("remoteWebDriverUrl")), desiredCapability);
+			ChromeOptions chromeOption = new ChromeOptions();
+			driver = new RemoteWebDriver(new URL(ConfigUtil.getProperty("remoteWebDriverUrl")), chromeOption);
 		} else {
-			desiredCapability = DesiredCapabilities.edge();
-			driver = new RemoteWebDriver(new URL(ConfigUtil.getProperty("remoteWebDriverUrl")), desiredCapability);
+			EdgeOptions edgeOption = new EdgeOptions();
+			driver = new RemoteWebDriver(new URL(ConfigUtil.getProperty("remoteWebDriverUrl")), edgeOption);
 		}
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigUtil.getProperty("implicitWaitTimeout")), TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(Long.parseLong(ConfigUtil.getProperty("pageLoadWaitTimeout")), TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(ConfigUtil.getProperty("implicitWaitTimeout"))));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(ConfigUtil.getProperty("pageLoadTimeout"))));
 		DriverManager.saveWebDriver(driver);
 	}
 }

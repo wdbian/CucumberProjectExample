@@ -1,8 +1,7 @@
 package stepDefinition;
 
-import static org.junit.Assert.assertTrue;
-
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import dbOperation.SQLQuery;
 import io.cucumber.java.en.And;
@@ -53,13 +52,13 @@ public class LoginSteps {
 	@Then("validate user product size is correct")
 	public void validate_user_product_size_is_correct() {
 		int productCount = dashboardPage.getAvailableProductsCount();
-		assertTrue("Customer products count is not correct", productCount == 1);
+		Assert.assertEquals(productCount, 1);
 	}
 	
 	@Then("validate user name is displayed correctly")
 	public void validate_user_name_is_displayed_correctly() {
 		String customerName = dashboardPage.getCustomerName();
-		assertTrue("Customer name is not correct", customerName.equals(SQLQuery.queryCustomerInfo(emailAddress)));	
+		Assert.assertEquals(customerName, SQLQuery.queryCustomerInfo(emailAddress));	
 	}
 	
 }

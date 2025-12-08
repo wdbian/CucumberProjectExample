@@ -2,6 +2,7 @@ package pages;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -36,7 +37,7 @@ public class BasePage {
 	public BasePage(WebDriver driver)
 	{
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Long.parseLong(ConfigUtil.getProperty("explicitWaitTimeout")));
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(Long.parseLong(ConfigUtil.getProperty("explicitWaitTimeout"))));
 		PageFactory.initElements(driver, this);
 		logger = LogManager.getLogger(this.getClass());
 	}
@@ -54,7 +55,7 @@ public class BasePage {
 	}
 	
 	public void setWebDriverWait(int waitSecond) {
-		wait = new WebDriverWait(driver, waitSecond);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(waitSecond));
 	}
 	
 	public void navigateTo(String url) {
@@ -111,7 +112,7 @@ public class BasePage {
 	
 	public void waitForPageLoaded(int seconds) {
 		if (! isPageLoaded()) {
-			wait = new WebDriverWait(driver, seconds);
+			wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));	
 			wait.until(new Function<WebDriver, Boolean>() {
 				public Boolean apply(WebDriver driver) {
 					// TODO Auto-generated method stub
@@ -227,7 +228,7 @@ public class BasePage {
 	}
 	
 	public void acceptAlertIfPopOutWithinSeconds(int seconds) {
-		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));	
 		try {
 			wait.until(ExpectedConditions.alertIsPresent());
 			acceptAlert();
