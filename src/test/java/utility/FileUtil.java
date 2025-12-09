@@ -34,7 +34,7 @@ public class FileUtil {
 		return isFound;
 	}
 	
-	public static boolean validateIfHeaderIsFound(String csvFilePath, String valueToSearch, String headerToSearch) {
+	public static boolean validateIfValueIsFound(String csvFilePath, String valueToSearch, String headerToSearch) {
 		boolean isFound = false;
 		try (Reader reader = new FileReader(csvFilePath);
 			 CSVParser csvParser = CSVParser.parse(reader, CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).setTrim(true).build()))
