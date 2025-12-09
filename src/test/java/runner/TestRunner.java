@@ -14,7 +14,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 					"html:target/cucumber-reports/CucumberReport.html",
 					"junit:target/cucumber-reports/CucumberReport.xml", 
 					"listener.StepListener"
-				},
+				 },
 		monochrome = true,
 		dryRun = true,
 		tags = "@regression"
