@@ -161,6 +161,22 @@ public class BasePage {
 		});
 	}
 	
+	public void waitForNewWebPageDisplay(int currentWindowCount) {
+		wait.until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return (driver.getWindowHandles().size() > currentWindowCount);
+			}	
+		});
+	}
+	
+	public void waitForSeconds(int seconds) {
+		try {
+			Thread.sleep(seconds * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void clickWebElement(WebElement element) {
 		if (! isElementDisplayed(element)) {
 			waitForElementDisplay(element);
@@ -203,6 +219,20 @@ public class BasePage {
 	
 	public boolean isElementAttributeEqualToValue(WebElement element, String elementAttribute, String value) {
 		return element.getAttribute(elementAttribute).equalsIgnoreCase(value) ? true : false;
+	}
+	
+	public boolean isElementExists(List<WebElement> elementList) {
+		return elementList.size() > 0 ? true : false;
+	}
+	
+	public boolean isElementExists(WebElement element) {
+		return element.isDisplayed() ? true : false;			
+	}
+	
+	public void inputTextIntoInputbox(WebElement element, String text) {
+		waitForElementDisplay(element);
+		element.clear();
+		element.sendKeys(text);
 	}
 	
 	public void enterTabKey(WebElement element) {
@@ -286,16 +316,50 @@ public class BasePage {
 		return driver.getWindowHandle();
 	}
 	
-	public void returnToSpecificWindowHandle(String originalWindowHandle) {
+	public int getNumberOfOpenWindows() {
+		Set<String> windowHandles = driver.getWindowHandles();
+		return windowHandles.size();
+	}
+	
+	public void switchToSpecificWindowHandle(String originalWindowHandle) {
 		Set<String> windowHandles = driver.getWindowHandles();
 		try {
 			for (String s : windowHandles) {
 				if (s.equals(originalWindowHandle)) {
 					driver.switchTo().window(originalWindowHandle);
+					break;
 				}
 			}
 		} catch (NoSuchWindowException e) {
-			System.out.println(e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
+	public void switchToWindowNotSpecified(String excludedWindowHandle) {
+		Set<String> windowHandles = driver.getWindowHandles();
+		try {
+			for (String s : windowHandles) {
+				if (! s.equals(excludedWindowHandle)) {
+					driver.switchTo().window(s);
+					break;
+				}
+			}
+		} catch (NoSuchWindowException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void switchToWindowNotSpecified(Set<String> excludedWindowHandles) {
+		Set<String> windowHandles = driver.getWindowHandles();
+		try {
+			for (String s : windowHandles) {
+				if (! excludedWindowHandles.contains(s)) {
+					driver.switchTo().window(s);
+					break;
+				}
+			}
+		} catch (NoSuchWindowException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -318,11 +382,11 @@ public class BasePage {
 		return element.getText();
 	}
 	
-	public String getTextOfWebElementAttribute(WebElement element, String attribute) {
+	public String getWebElementAttributeValue(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
 	}
 	
-	public String getTextOfWebElemetAttribute(String xpath, String attribute) {
+	public String getWebElemetAttributeValue(String xpath, String attribute) {
 		return driver.findElement(By.xpath(xpath)).getAttribute(attribute);
 	}
 	

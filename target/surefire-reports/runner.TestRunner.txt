@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: runner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 10.19 s <<< FAILURE! -- in runner.TestRunner
+runner.TestRunner.runScenario["Successful login with correct credential", "Optional[Login Feature]"](2) -- Time elapsed: 8.495 s <<< FAILURE!
+java.lang.NumberFormatException: null
+	at java.base/java.lang.Long.parseLong(Long.java:655)
+	at java.base/java.lang.Long.parseLong(Long.java:817)
+	at driverGenerator.WebDriverGenerator.<init>(WebDriverGenerator.java:50)
+	at hook.Hook.beforeScenario(Hook.java:54)
+
+runner.TestRunner.runScenario["Successful login with correct credential", "Optional[Order Card]"](2) -- Time elapsed: 8.499 s <<< FAILURE!
+java.lang.NumberFormatException: null
+	at java.base/java.lang.Long.parseLong(Long.java:655)
+	at java.base/java.lang.Long.parseLong(Long.java:817)
+	at driverGenerator.WebDriverGenerator.<init>(WebDriverGenerator.java:50)
+	at hook.Hook.beforeScenario(Hook.java:54)
+

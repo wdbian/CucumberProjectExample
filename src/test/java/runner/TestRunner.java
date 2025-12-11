@@ -16,7 +16,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 					"listener.StepListener"
 				 },
 		monochrome = true,
-		dryRun = true,
+		dryRun = false,
 		tags = "@regression"
 )
 public class TestRunner extends AbstractTestNGCucumberTests{

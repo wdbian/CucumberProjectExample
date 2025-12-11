@@ -13,5 +13,5 @@ Feature: Login Feature
     And validate user name is displayed correctly
 
     Examples: 
-      | 				email         | 		password 		|
-      | wdbian@hotmail.com 		| 		Test     		|
+      | 				email         | 		password 			|
+      | wdbian@hotmail.com 		| 		Bwd@750829    |

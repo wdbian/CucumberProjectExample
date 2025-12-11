@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import extent.ExtentTestManager;
 
@@ -12,6 +13,7 @@ import extent.ExtentTestManager;
  */
 public class LoginPage extends BasePage{
 	WebDriver driver;
+	WebDriverWait wait;
 	DashboardPage dashboardPage;
 	
 	@FindBy(xpath="//input[@id='signInName' and ./preceding-sibling::*[contains(text(), 'Email Address')]]")

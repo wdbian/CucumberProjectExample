@@ -10,6 +10,7 @@ import dataDictionary.ThreadDataMap;
 import driverGenerator.WebDriverGenerator;
 import enumeration.WebDriverType;
 import enumeration.WebDriverVendor;
+import extent.ExtentManager;
 import extent.ExtentTestManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,6 +18,7 @@ import io.cucumber.java.Scenario;
 import manager.DriverManager;
 import utility.ConfigUtil;
 import utility.WebUtil;
+
 
 public class Hook {
 	String scenarioName;
@@ -82,6 +84,7 @@ public class Hook {
 		} else {
 			ExtentTestManager.getTest().pass("<b>Scenario -" + scenarioName + ": </b>" + "<b style=\"color: green\">Passed</b>");
 		}
+		ExtentManager.getReporter().flush();
 		ExtentTestManager.endTest();
 		driver.quit();
 		threadDataMap.removeDataMap();

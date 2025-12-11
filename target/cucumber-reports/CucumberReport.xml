@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="2" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="8.542">
+    <testcase classname="Login Feature" name="Successful login with correct credential" time="8.367">
+        <failure message="null" type="java.lang.NumberFormatException">
+            <![CDATA[Given user opens landing page...............................................skipped
+When user navigates to login page...........................................skipped
+When user enters "wdbian@hotmail.com" in Email input........................skipped
+And user enters "Bwd@750829" in Password input..............................skipped
+And user clicks SignIn button...............................................skipped
+Then validate user product size is correct..................................skipped
+And validate user name is displayed correctly...............................skipped
+
+StackTrace:
+java.lang.NumberFormatException: null
+	at java.base/java.lang.Long.parseLong(Long.java:655)
+	at java.base/java.lang.Long.parseLong(Long.java:817)
+	at driverGenerator.WebDriverGenerator.<init>(WebDriverGenerator.java:50)
+	at hook.Hook.beforeScenario(Hook.java:54)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Order Card" name="Successful login with correct credential" time="8.359">
+        <failure message="null" type="java.lang.NumberFormatException">
+            <![CDATA[Given user opens landing page...............................................skipped
+When user navigates to login page...........................................skipped
+When user enters "wdbian@hotmail.com" in Email input........................skipped
+And user enters "Bwd@750829" in Password input..............................skipped
+And user clicks SignIn button...............................................skipped
+And user clicks order physical card button from dashboard page..............skipped
+Then validate add to cart button is displayed...............................skipped
+
+StackTrace:
+java.lang.NumberFormatException: null
+	at java.base/java.lang.Long.parseLong(Long.java:655)
+	at java.base/java.lang.Long.parseLong(Long.java:817)
+	at driverGenerator.WebDriverGenerator.<init>(WebDriverGenerator.java:50)
+	at hook.Hook.beforeScenario(Hook.java:54)
+]]>
+        </failure>
+    </testcase>
+</testsuite>

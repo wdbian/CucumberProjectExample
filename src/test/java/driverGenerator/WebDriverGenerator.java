@@ -47,7 +47,7 @@ public class WebDriverGenerator {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Long.parseLong(ConfigUtil.getProperty("implicitWaitTimeout"))));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(ConfigUtil.getProperty("pageLoadTimeout"))));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Long.parseLong(ConfigUtil.getProperty("pageLoadWaitTimeout"))));
 		DriverManager.saveWebDriver(driver);
 	}
 }

@@ -1,6 +1,7 @@
 package listener;
 
 import extent.ExtentTestManager;
+import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.EventPublisher;
 import io.cucumber.plugin.event.PickleStepTestStep;
 import io.cucumber.plugin.event.Status;
@@ -10,7 +11,7 @@ import io.cucumber.plugin.event.TestStep;
 import io.cucumber.plugin.event.TestStepFinished;
 import io.cucumber.plugin.event.TestStepStarted;
 
-public class StepListener {
+public class StepListener implements ConcurrentEventListener {
 	
 	public void setEventPublisher(EventPublisher eventPublisher) {
 		eventPublisher.registerHandlerFor(TestCaseStarted.class, this::onSenarioStarted);

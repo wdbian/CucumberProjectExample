@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import extent.ExtentTestManager;
 
@@ -10,8 +11,9 @@ import extent.ExtentTestManager;
  * Access To Page:
  * input landing page URL
  */
-public class LandingPage extends BasePage {
+public class LandingPage extends LandingBasePage {
 	WebDriver driver;
+	WebDriverWait wait;
 	LoginPage loginPage;
 	
 	@FindBy(xpath="//a[text()='Sign In / Sign Up']")

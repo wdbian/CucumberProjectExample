@@ -1,0 +1,278 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 8552500,
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "user opens landing page",
+            "match": {},
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-12-11T05:12:53.188Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "java.lang.NumberFormatException: null\r\n\tat java.base/java.lang.Long.parseLong(Long.java:655)\r\n\tat java.base/java.lang.Long.parseLong(Long.java:817)\r\n\tat driverGenerator.WebDriverGenerator.\u003cinit\u003e(WebDriverGenerator.java:50)\r\n\tat hook.Hook.beforeScenario(Hook.java:54)\r\n",
+              "duration": 8232642300,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hook.Hook.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Successful login with correct credential",
+        "description": "",
+        "id": "login-feature;successful-login-with-correct-credential;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\r\n\tat utility.WebUtil.getScreenshot(WebUtil.java:33)\r\n\tat hook.Hook.afterScenario(Hook.java:80)\r\n",
+              "duration": 3984600,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hook.Hook.afterScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "user navigates to login page",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1005000,
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "user enters \"wdbian@hotmail.com\" in Email input",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "user enters \"Bwd@750829\" in Password input",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 987100,
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "user clicks SignIn button",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000600,
+              "status": "skipped"
+            },
+            "line": 12,
+            "name": "validate user product size is correct",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 999700,
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "validate user name is displayed correctly",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression"
+          }
+        ]
+      }
+    ],
+    "name": "Login Feature",
+    "description": "",
+    "id": "login-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/feature/Login.feature",
+    "tags": [
+      {
+        "name": "@regression",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 994300,
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "user opens landing page",
+            "match": {},
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-12-11T05:12:53.189Z",
+        "before": [
+          {
+            "result": {
+              "error_message": "java.lang.NumberFormatException: null\r\n\tat java.base/java.lang.Long.parseLong(Long.java:655)\r\n\tat java.base/java.lang.Long.parseLong(Long.java:817)\r\n\tat driverGenerator.WebDriverGenerator.\u003cinit\u003e(WebDriverGenerator.java:50)\r\n\tat hook.Hook.beforeScenario(Hook.java:54)\r\n",
+              "duration": 8157081200,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hook.Hook.beforeScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Successful login with correct credential",
+        "description": "",
+        "id": "order-card;successful-login-with-correct-credential;;2",
+        "after": [
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\r\n\tat utility.WebUtil.getScreenshot(WebUtil.java:33)\r\n\tat hook.Hook.afterScenario(Hook.java:80)\r\n",
+              "duration": 35244200,
+              "status": "failed"
+            },
+            "match": {
+              "location": "hook.Hook.afterScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 2013500,
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "user navigates to login page",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1977300,
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "user enters \"wdbian@hotmail.com\" in Email input",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 732600,
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "user enters \"Bwd@750829\" in Password input",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1002100,
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "user clicks SignIn button",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2006000,
+              "status": "skipped"
+            },
+            "line": 12,
+            "name": "user clicks order physical card button from dashboard page",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1552100,
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "validate add to cart button is displayed",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression"
+          }
+        ]
+      }
+    ],
+    "name": "Order Card",
+    "description": "",
+    "id": "order-card",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/feature/OrderCard.feature",
+    "tags": [
+      {
+        "name": "@regression",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
